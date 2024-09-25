@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.microServiceName }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.microServiceName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.microServiceName }}
+    spec:
+      containers:
+        - name: {{ .Values.microServiceName }}
+          image: "{{ .Values.serviceImageName }}:{{ .Values.serviceImageTag }}"
+          ports:
+            - containerPort: { { .Values.containerPort } }
+          env:
+          {{- range .Values.containerEnvVars }}
+          - name: {{ .name }}
+            value: {{ .value | quote }}
+          {{- end }}

@@ -1,0 +1,10 @@
+# List of attributes that their values must be passed to the chart
+microServiceName: microServiceName
+replicaCount: 1
+serviceImageName: serviceImageName
+serviceImageTag: serviceImageTag
+containerPort: 8080
+serviceType: ClusterIP
+servicePort: 8080
+volumeName: volumeName
+volumeMountPath: volumeMountPath

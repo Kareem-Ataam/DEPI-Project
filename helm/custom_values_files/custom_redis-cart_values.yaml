@@ -1,0 +1,10 @@
+# List of attributes that their values must be passed to the chart
+microServiceName: redis-cart
+replicaCount: 1
+serviceImageName: redis
+serviceImageTag: alpine
+containerPort: 6379
+serviceType: ClusterIP
+servicePort: 6379
+volumeName: redis-data
+volumeMountPath: /data

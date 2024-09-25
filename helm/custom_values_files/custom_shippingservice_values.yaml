@@ -1,0 +1,10 @@
+microServiceName: shippingservice
+replicaCount: 2
+serviceImageName: gcr.io/google-samples/microservices-demo/shippingservice
+serviceImageTag: v0.2.3
+containerPort: 50051
+containerEnvVars:
+- name: PORT
+  value: "50051"
+serviceType: ClusterIP
+servicePort: 50051
