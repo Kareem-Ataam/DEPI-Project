@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { .Values.microServiceName } }
+  name: {{ .Values.microServiceName }}
 spec:
-  replicas: { { .Values.replicaCount } }
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: { { .Values.microServiceName } }
+      app: {{ .Values.microServiceName }}
   template:
     metadata:
       labels:
-        app: { { .Values.microServiceName } }
+        app: {{ .Values.microServiceName }}
     spec:
       containers:
-        - name: { { .Values.microServiceName } }
+        - name: {{ .Values.microServiceName }}
           image: "{{ .Values.serviceImageName }}:{{ .Values.serviceImageTag }}"
           ports:
-            - containerPort: { { .Values.containerPort } }
+            - containerPort: {{ .Values.containerPort }}
           volumeMounts:
-            - mountPath: { { .Values.volumeMountPath } }
-              name: { { .Values.volumeName } }
+            - mountPath: {{ .Values.volumeMountPath }}
+              name: {{ .Values.volumeName }}
     volumes:
-      - name: { { .Values.volumeName } }
+      - name: {{ .Values.volumeName }}
         emptyDir: {}
